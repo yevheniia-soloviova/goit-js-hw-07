@@ -9,7 +9,7 @@ const onInputBlur = function () {
   console.log("Инпут потерял фокус");
 };
 
-const onInputСhange = function (event) {
+const onInputChange = function (event) {
   console.log(event.currentTarget.value);
 
   event.currentTarget.value === ""
@@ -19,4 +19,4 @@ const onInputСhange = function (event) {
 
 inputRef.addEventListener("focus", onInputFocus);
 inputRef.addEventListener("blur", onInputBlur);
-inputRef.addEventListener("input", onInputСhange);
+inputRef.addEventListener("input", onInputChange);
