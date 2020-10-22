@@ -1,20 +1,14 @@
-const inputRef = document.querySelector("#validation-input");
+const validationInput = document.querySelector("#validation-input");
 
-const onInputFocus = function () {
-  console.log("Инпут получил фокус");
-};
+function inputFocusChange() {
+  if (validationInput.value.length < validationInput.dataset.length) {
+    validationInput.classList.add("valid");
+    validationInput.classList.remove("invalid");
+  } else {
+    validationInput.classList.add("invalid");
+    validationInput.classList.remove("valid");
+  }
+}
 
-const validLength = inputRef.dataset.length;
-console.log(validLength);
+validationInput.addEventListener("blur", inputFocusChange);
 
-const onInputBlur = function () {
-  console.log("Инпут потерял фокус");
-  inputRef.value.length < validLength
-    ? inputRef.classList.add("invalid")
-    : inputRef.classList.replace("invalid", "valid");
-  console.log(inputRef.value.length);
-  console.log(validLength);
-};
-
-inputRef.addEventListener("focus", onInputFocus);
-inputRef.addEventListener("blur", onInputBlur);
